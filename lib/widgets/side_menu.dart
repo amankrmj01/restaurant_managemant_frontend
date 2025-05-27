@@ -114,8 +114,8 @@ class _SideMenuState extends State<SideMenu> {
                 ),
               )
               .values,
-          Spacer(),
-          LocationCardWidget(),
+          // Spacer(),
+          // LocationCardWidget(),
         ],
       ),
     );

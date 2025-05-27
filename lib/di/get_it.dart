@@ -21,7 +21,11 @@ Future<void> init() async {
   getIt.registerLazySingleton<HttpClientDio>(
     () => HttpClientDio(dio: getIt(), sharedPreferences: getIt()),
   );
-  getIt.registerLazySingleton<Dio>(() => Dio());
+  getIt.registerLazySingleton<Dio>(() {
+    final dio = Dio();
+    dio.options.baseUrl = "http://localhost:8080/api/v1";
+    return dio;
+  });
 
   getIt.registerLazySingleton<IAuthService>(
     () => AuthServiceImpl(sharedPreferences: getIt(), dio: getIt()),
